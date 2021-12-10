@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section v-if="objData">
+    <carousel :banners="objData.metadata.banners"></carousel>
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Carousel from '../components/Carousel.vue';
 
 export default {
-  name: 'Home',
+  metaInfo: {
+    title: "Mr.Pizza"
+  },
   components: {
-    HelloWorld
-  }
+    Carousel
+  },
+  methods: {
+    fetchData() {
+      this.$store.dispatch('fetchContent', {
+        id: '61a1fa8b02072e0008bf5968',
+        props: 'thumbnail,metadata'
+      });  
+    }
+  },
+  created () {
+    this.fetchData();
+  },
+  computed: {
+    objData() {
+      return this.$store.getters['objData'];
+    }
+  },
 }
 </script>
+
