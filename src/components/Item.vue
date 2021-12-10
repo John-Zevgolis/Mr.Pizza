@@ -1,5 +1,8 @@
 <template>
-	<router-link class="box-item" :to="`/${slug}/${item.slug}`">
+	<router-link v-if="item.metadata.url" class="box-item" :to="`/${slug}`">
+		<div class="bg-img" v-lazy:background-image="item.thumbnail"></div>
+	</router-link>
+	<router-link v-else class="box-item" :to="`/${slug}/${item.slug}`">
 		<div class="bg-img" v-lazy:background-image="item.thumbnail"></div>
 	</router-link>
 </template>

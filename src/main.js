@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import VueWaypoint from 'vue-waypoint';
 import VueLazyload from 'vue-lazyload';
 import VueMeta from 'vue-meta';
-import VueAnalytics from 'vue-analytics';
 library.add(faFacebookF, faPizzaSlice);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -26,10 +25,6 @@ Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyCBmUXYXi_Zufpz1rKucKIT1dsU9yIdx_Y'
   }
-});
-Vue.use(VueAnalytics, {
-    id: 'G-EK0DZN5DYK',
-    router
 });
 
 new Vue({

@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="mb-5 text-center"><span class="badge">{{objData.title}}</span></h1>
+					<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
 				</div>
 			</div>
 			<div class="row">
@@ -11,17 +11,23 @@
 					<item :slug="objData.slug" :item="pizza"></item>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-12 text-center">
+					<h2 v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="my-3 my-md-4 display-5 from-bottom"><span class="badge">ΜΗΝ ΞΕΧΑΣΕΤΕ</span></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mt-4 from-bottom" v-for="(item, index) in objData.metadata.diafora_items" :key="index">
+					<item :slug="item.metadata.url" :item="item"></item>
+				</div>
+			</div>
 		</div>
 	</section>
-	<transition v-else name="fade">
-		<loader></loader>
-	</transition>
 </template>
 
 <script>
 import data from '../mixins/data';
 import Item from '../components/Item.vue';
-import Loader from '../components/Loader.vue';
 
 export default {
 	data() {
@@ -34,8 +40,7 @@ export default {
 		};
 	},
 	components: {
-		Item,
-		Loader
+		Item
 	},
 	mixins: [data],
 	methods: {
@@ -53,3 +58,11 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+.display-5 {
+	@media (max-width: 1199.98px) {
+		font-size: calc(1.5rem + 1.5vw);
+	}
+}
+</style>

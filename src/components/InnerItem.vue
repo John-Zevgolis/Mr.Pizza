@@ -5,7 +5,21 @@
 				<div class="col-12">
 					<div class="custom-padding-top pb-5 position-relative">
 						<h1 class="mb-4"><span class="badge">{{item.title}}</span></h1>
-						<ul class="list-group flex-column flex-md-row list-group-horizontal">
+						<div class="row" v-if="item.slug === 'ylika'">
+							<div class="col-md-4 mb-4 mb-md-0" v-for="(item, index) in item.metadata.ylika_items" :key="index">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title mb-0">{{item.title}}</h5>
+									</div>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item" v-for="(item, index) in item.metadata.ingredients" :key="index">
+											<span v-for="(value, name, index) in item" :key="index">{{value}}</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<ul v-else class="list-group flex-column flex-md-row list-group-horizontal">
 							<li v-for="(item, index) in item.metadata.ingredients" :key="index" class="list-group-item">
 								<span v-for="(value, name, index) in item" :key="index">{{value}}</span>
 							</li>

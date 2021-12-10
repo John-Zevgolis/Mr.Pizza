@@ -8,21 +8,16 @@
 			</div>
 		</div>
 	</section>
-	<transition v-else name="fade">
-		<loader></loader>
-	</transition>
 </template>
 
 <script>
 import InnerItem from '../components/InnerItem.vue';
 import item from '../mixins/item';
-import Loader from '../components/Loader.vue';
 
 export default {
 	mixins: [item],
 	components: {
-		InnerItem,
-		Loader
+		InnerItem
 	}
 }
 </script>

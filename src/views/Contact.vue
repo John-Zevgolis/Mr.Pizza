@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="mb-5 text-center"><span class="badge">{{objData.title}}</span></h1>
+					<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
 				</div>
 			</div>
 		</div>
@@ -63,20 +63,13 @@
 			</div>
 		</div>
 	</section>
-	<transition v-else name="fade">
-		<loader></loader>
-	</transition>
 </template>
 
 <script>
 import data from '../mixins/data';
 import social from '../mixins/social';
-import Loader from '../components/Loader.vue';
 
 export default {
-	components: {
-		Loader
-	},
 	mixins: [data, social],
 	data() {
 		return {

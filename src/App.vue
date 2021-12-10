@@ -1,25 +1,20 @@
 <template>
   <div>
-    <div v-show="!loading" :class="$route.name === 'Home' || $route.params.id ? 'white-text' : 'red-text'">
+    <div :class="$route.name === 'Home' || $route.params.id ? 'white-text' : 'red-text'">
       <the-header :logo="logo" :social="social"></the-header>
       <router-view></router-view>
     </div>
-    <transition name="fade">
-      <loader v-show="loading"></loader>
-    </transition>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue';
-import Loader from './components/Loader.vue';
 import social from './mixins/social';
 
 export default {
   mixins: [social],
   components: {
-    TheHeader,
-    Loader
+    TheHeader
   },
   created() {
     this.fetchLogo();
@@ -32,9 +27,6 @@ export default {
   computed: {
     logo() {
       return this.$store.getters['logo'];
-    },
-    loading() {
-      return this.$store.getters['loading'];
     }
   }
 }
@@ -46,6 +38,15 @@ export default {
     src: url('/fonts/Roboto-Regular.woff2') format('woff2'),
         url('/fonts/Roboto-Regular.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Medium.woff2') format('woff2'),
+        url('/fonts/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
@@ -73,6 +74,20 @@ h1 {
  @media (max-width: 1199.98px) {
     font-size: calc(1.5rem + 1.5vw);
  }
+}
+
+h5 {
+ @media (max-width: 1199.98px) {
+    font-size: calc(.625rem + 1vw);
+ }
+}
+
+.list-group {
+  .list-group-item {
+    @media (max-width: 1199.98px) {
+      font-size: calc(.625rem + .625vw);
+    }
+  }
 }
 
 a {
@@ -103,18 +118,6 @@ img {
     opacity: 1;
     transform: none;
   }
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  transition: all .3s ease-out;
-}
-
-.fade-leave-active {
-  transition: all .3s ease-in;
 }
 
 .custom-padding-top {

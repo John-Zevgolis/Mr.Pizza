@@ -18,7 +18,6 @@ const store = new Vuex.Store({
 			item: null,
 			logo: null,
 			social: null,
-			loading: false
 		};
 	},
 	mutations: {
@@ -36,57 +35,48 @@ const store = new Vuex.Store({
 		},
 		storeSocial(state, payload) {
 			state.social = payload;
-		},
-		setLoading(state, payload) {
-			state.loading = payload;
 		}
 	},
 	actions: {
 		fetchContent({commit}, payload) {
-			commit('setLoading', true);
 			bucket.getObject({
 				id: payload.id,
 				props: payload.props
-			}).then(response => commit('storeData', response.object))
-				.then(() => commit('setLoading', false));
+			}).then(response => commit('storeData', response.object));
 		},
 		fetchPages({commit}) {
-			commit('setLoading', true);
 			bucket.getObjectTypes().then(response => {
 				const pages = response.object_types.filter(item => {
 					return item.singleton === true;
 				});
 				commit('storePages', pages);
-			}).then(() => commit('setLoading', false));
+			});
 		},
 		fetchItem({ commit}, payload) {
-			commit('setLoading', true);
 			bucket.getObjects().then(response => { 
 				const item = response.objects.find(item => {
 					return item.slug === payload;
 				});
 				commit('storeItem', {
 					title: item.title,
+					slug: item.slug,
 					metadata: item.metadata
 				});
-			}).then(() => commit('setLoading', false));
+			});
 		},
 		fetchLogo({commit}) {
-			commit('setLoading', true);
 			bucket.getSingleMedia({
 				id: '61a14502921e530e5feee446',
 				props: 'url'
-			}).then(response => commit('storeLogo', response.media.url))
-				.then(() => commit('setLoading', false));
+			}).then(response => commit('storeLogo', response.media.url));
 		},
 		fetchSocial({commit}) {
-			commit('setLoading', true);
 			bucket.getObjects({
 				query: {
 					type: 'social'
 				},
 				props: 'slug,metadata'
-			}).then(response => commit('storeSocial', response.objects)).then(() => commit('setLoading', false));
+			}).then(response => commit('storeSocial', response.objects));
 		},
 	},
 	getters: {
@@ -104,9 +94,6 @@ const store = new Vuex.Store({
 		},
 		social(state) {
 			return state.social;
-		},
-		loading(state) {
-			return state.loading;
 		}
 	}
 });

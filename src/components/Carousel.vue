@@ -35,8 +35,8 @@ export default {
   },
   data() {
     return {
-      lazy: false,
       settings: {
+        "lazyLoad": "ondemand",
         "dots": true,
         "fade": true,
         "infinite": true,
@@ -90,8 +90,6 @@ export default {
         color: #fff;
         font-size: 4.5rem;
         transform: translateY(20px);
-        transition: all .3s;
-        transition-delay: .3s;
 
         @media (max-width: 1399.98px) {
           font-size: 4rem;
@@ -112,8 +110,6 @@ export default {
 
       .custom-btn {
         transform: translateY(40px);
-        transition: all .6s;
-        transition-delay: .3s;
 
         @media (max-width: 1399.98px) {
           font-size: 1rem;
@@ -143,9 +139,12 @@ export default {
       z-index: 1;
 
       .bg-img {
-        h1,.custom-btn {
-          transform: none;
-          opacity: 1;
+        h1 {
+          animation: heading .3s forwards .3s;
+        }
+
+        .custom-btn {
+          animation: button .6s forwards .3s;
         }
       }
     }
@@ -253,6 +252,28 @@ export default {
         }
       }
     }
+  }
+}
+
+@keyframes heading {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes button {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
