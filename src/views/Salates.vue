@@ -1,23 +1,29 @@
 <template>
-	<section v-if="objData" class="custom-padding-top pb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
+	<div>
+		<section v-if="objData" class="custom-padding-top pb-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mb-4 from-bottom" v-for="(salata, index) in objData.metadata.salates_items" :key="index">
+						<item :slug="objData.slug" :item="salata"></item>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mb-4 from-bottom" v-for="(salata, index) in objData.metadata.salates_items" :key="index">
-					<item :slug="objData.slug" :item="salata"></item>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
+		<transition name="fade">
+			<loader v-show="!objData"></loader>
+		</transition>
+	</div>
 </template>
 
 <script>
 import data from '../mixins/data';
 import Item from '../components/Item.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
 	data() {
@@ -30,7 +36,8 @@ export default {
 		};
 	},
 	components: {
-		Item
+		Item,
+		Loader
 	},
 	mixins: [data],
 	methods: {

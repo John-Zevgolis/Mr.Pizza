@@ -1,5 +1,6 @@
 <template>
-	<section class="contact custom-padding-top" v-if="objData">
+	<div>
+		<section class="contact custom-padding-top" v-if="objData">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -62,15 +63,23 @@
 				</div>
 			</div>
 		</div>
-	</section>
+		</section>
+		<transition name="fade">
+			<loader v-show="!objData"></loader>
+		</transition>
+	</div>
 </template>
 
 <script>
 import data from '../mixins/data';
 import social from '../mixins/social';
+import Loader from '../components/Loader.vue';
 
 export default {
 	mixins: [data, social],
+	components: {
+		Loader
+	},
 	data() {
 		return {
 			center: {lat: 37.93722790686488, lng: 23.763348726809543},

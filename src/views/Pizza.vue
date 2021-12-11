@@ -1,33 +1,39 @@
 <template>
-	<section v-if="objData" class="custom-padding-top pb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
+	<div>
+		<section v-if="objData" class="custom-padding-top pb-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 col-lg-4 mb-4 from-bottom" v-for="(pizza, index) in objData.metadata.pizza_items" :key="index">
+						<item :slug="objData.slug" :item="pizza"></item>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 text-center">
+						<h2 v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="my-3 my-md-4 display-5 from-bottom"><span class="badge">ΜΗΝ ΞΕΧΑΣΕΤΕ</span></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mt-4 from-bottom" v-for="(item, index) in objData.metadata.diafora_items" :key="index">
+						<item :slug="item.metadata.url" :item="item"></item>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 col-lg-4 mb-4 from-bottom" v-for="(pizza, index) in objData.metadata.pizza_items" :key="index">
-					<item :slug="objData.slug" :item="pizza"></item>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12 text-center">
-					<h2 v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="my-3 my-md-4 display-5 from-bottom"><span class="badge">ΜΗΝ ΞΕΧΑΣΕΤΕ</span></h2>
-				</div>
-			</div>
-			<div class="row">
-				<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mt-4 from-bottom" v-for="(item, index) in objData.metadata.diafora_items" :key="index">
-					<item :slug="item.metadata.url" :item="item"></item>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
+		<transition name="fade">
+			<loader v-show="!objData"></loader>
+		</transition>
+	</div>
 </template>
 
 <script>
 import data from '../mixins/data';
 import Item from '../components/Item.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
 	data() {
@@ -40,7 +46,8 @@ export default {
 		};
 	},
 	components: {
-		Item
+		Item,
+		Loader
 	},
 	mixins: [data],
 	methods: {

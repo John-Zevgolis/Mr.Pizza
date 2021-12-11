@@ -82,6 +82,19 @@ h5 {
  }
 }
 
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: all .3s ease-out;
+}
+
+.fade-leave-active {
+  transition: all .3s ease-in;
+}
+
 .list-group {
   .list-group-item {
     @media (max-width: 1199.98px) {

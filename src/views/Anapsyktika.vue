@@ -1,30 +1,39 @@
 <template>
-	<section v-if="objData" class="custom-padding-top pb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-8 col-xxl-9">
-					<div class="row">
-						<div class="col-6 col-lg-4 col-xxl-3 mb-4" v-for="(item, index) in objData.metadata.pictures" :key="index">
-							<div class="bg-img" v-for="(value, name, index) in item" :key="index"  v-lazy:background-image="value.url"></div>
-						</div>
+	<div>
+		<section v-if="objData" class="custom-padding-top pb-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="mb-4 text-center"><span class="badge">{{objData.title}}</span></h1>
 					</div>
 				</div>
-				<div class="col-md-4 col-xxl-3" v-html="objData.content"></div>
+				<div class="row">
+					<div class="col-md-8 col-xxl-9">
+						<div class="row">
+							<div class="col-6 col-lg-4 col-xxl-3 mb-4" v-for="(item, index) in objData.metadata.pictures" :key="index">
+								<div class="bg-img" v-for="(value, name, index) in item" :key="index"  v-lazy:background-image="value.url"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-xxl-3" v-html="objData.content"></div>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+		<transition name="fade">
+			<loader v-show="!objData"></loader>
+		</transition>
+	</div>
 </template>
 
 <script>
 import data from '../mixins/data';
+import Loader from '../components/Loader.vue';
 
 export default {
 	mixins: [data],
+	components: {
+		Loader
+	},
 	methods: {
 		fetchData() {
 			this.$store.dispatch('fetchContent', {

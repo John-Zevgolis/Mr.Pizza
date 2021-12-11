@@ -1,18 +1,25 @@
 <template>
+  <div>
   <section v-if="objData">
     <carousel :banners="objData.metadata.banners"></carousel>
   </section>
+  <transition name="fade">
+    <loader v-show="!objData"></loader>
+  </transition>
+</div>
 </template>
 
 <script>
 import Carousel from '../components/Carousel.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
   metaInfo: {
     title: "Mr.Pizza"
   },
   components: {
-    Carousel
+    Carousel,
+    Loader
   },
   methods: {
     fetchData() {
