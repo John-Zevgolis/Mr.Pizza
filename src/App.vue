@@ -120,6 +120,7 @@ img {
 
 .badge {
   background-color: #d8252f !important;
+  white-space: unset;
 }
 
 .from-bottom {
