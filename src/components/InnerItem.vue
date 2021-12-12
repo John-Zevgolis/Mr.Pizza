@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-img" :style="`background-image: url(${item.metadata.banner.url})`">
+	<div class="bg-img" v-lazy:background-image="item.metadata.banner.url">
 		<div class="container px-0">
 			<div class="row mx-0">
 				<div class="col-12">
