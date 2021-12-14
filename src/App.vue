@@ -273,16 +273,10 @@ header {
             background: #fff !important;
           }
 
-          &.website,
-          &.facebook {
+          &.contact-button,
+          &.pizza-button {
             &:hover {
               color: #d8252f !important;
-            }
-          }
-
-          &.facebook {
-            &:hover {
-              color: #4267B2 !important;
             }
           }
         }
@@ -507,15 +501,10 @@ header {
             background: #fff;
           }
 
-          &.website {
+          &.contact-button,
+          &.pizza-button {
             &:hover {
               color: #d8252f;
-            }
-          }
-
-          &.facebook {
-            &:hover {
-              color: #4267B2;
             }
           }
         }
@@ -556,8 +545,8 @@ header {
             background: #d8252f;
           }
 
-          &.website,
-          &.facebook {
+          &.contact-button,
+          &.pizza-button {
             &:hover {
               color: #fff;
             }

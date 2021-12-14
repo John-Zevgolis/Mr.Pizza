@@ -17,7 +17,7 @@ const store = new Vuex.Store({
 			pages: null,
 			item: null,
 			logo: null,
-			social: null,
+			social: null
 		};
 	},
 	mutations: {

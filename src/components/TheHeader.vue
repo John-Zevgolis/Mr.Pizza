@@ -19,11 +19,7 @@
 						<nav class="order-0 order-lg-2">
 							<ul class="nav social flex-nowrap">
 								<li v-for="(item, index) in social" :key="index">
-									<a target="_blank" v-if="item.slug==='facebook'" :class="item.slug" class="d-flex align-items-center justify-content-center rounded-circle position-relative" :href="item.metadata.url">
-										<font-awesome-icon :icon="icon(item.slug)" />
-									</a>
 									<router-link
-										v-else
 										:to="item.metadata.url"
 										custom
 										v-slot="{ href }">
@@ -105,13 +101,13 @@ export default {
 		},
 		icon(item) {
 			const icon = {
-				'website': {
+				'pizza-button': {
 					'prefix': 'fa',
 					'iconName': 'pizza-slice'
 				},
-				'facebook': {
-					'prefix': 'fab',
-					'iconName': 'facebook-f'
+				'contact-button': {
+					'prefix': 'fa',
+					'iconName': 'phone'
 				}
 			};
 			return icon[item];

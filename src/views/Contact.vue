@@ -10,7 +10,11 @@
 		</div>
 		<div class="container-fluid px-0">
 			<div class="row gx-0">
-				<div class="col-12">
+				<div class="col-12 position-relative">
+					<a class="position-absolute d-inline-flex align-items-center directions text-white py-2 px-3 rounded fw-bold" href="https://www.google.com/maps/dir//Mr.Pizza,+Apollonos+ke,+%CE%91%CF%81%CF%84%CE%AD%CE%BC%CE%B9%CE%B4%CE%BF%CF%82,+%CE%97%CE%BB%CE%B9%CE%BF%CF%8D%CF%80%CE%BF%CE%BB%CE%B7+163+43/@37.9369736,23.7610915,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x14a196281ded059d:0x6145793c9c1f9f84!2m2!1d23.7632802!2d37.9369694!3e0" target="_blank">
+						<font-awesome-icon :icon="{'prefix': 'fa','iconName': 'directions'}" />
+						<span class="d-block ms-3">ΛΗΨΗ ΟΔΗΓΙΩΝ</span>
+					</a>
 					<GmapMap
 						:zoom="17"
 						:center="center"
@@ -44,11 +48,7 @@
 							<p>{{objData.metadata.address}}</p>
 							<ul class="nav social flex-nowrap justify-content-center">
 								<li v-for="(item, index) in social" :key="index">
-									<a target="_blank" v-if="item.slug==='facebook'" :class="item.slug" class="d-flex align-items-center justify-content-center rounded-circle position-relative" :href="item.metadata.url">
-										<font-awesome-icon :icon="icon(item.slug)" />
-									</a>
 									<router-link
-										v-else
 										:to="item.metadata.url"
 										custom
 										v-slot="{ href }">
@@ -267,13 +267,13 @@ export default {
 		},
 		icon(item) {
 			const icon = {
-				'website': {
+				'pizza-button': {
 					'prefix': 'fa',
 					'iconName': 'pizza-slice'
 				},
-				'facebook': {
-					'prefix': 'fab',
-					'iconName': 'facebook-f'
+				'contact-button': {
+					'prefix': 'fa',
+					'iconName': 'phone'
 				}
 			};
 			return icon[item];
@@ -296,6 +296,21 @@ export default {
 	}
 }
 
+.directions {
+	z-index: 1;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #d8252f;
+
+	@media (max-width: 767.98px) {
+		top: auto;
+		left: 10px;
+		bottom: 40px;
+		transform: none;
+	}
+}
+
 .social {
   li {
     a {
@@ -306,8 +321,8 @@ export default {
         background: #000;
       }
 
-      &.website,
-       &.facebook {
+      &.contact-button,
+      &.pizza-button {
         &:hover {
           color: #fff;
         }

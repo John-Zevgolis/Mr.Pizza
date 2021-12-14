@@ -8,12 +8,13 @@ import store from './store';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import VueWaypoint from 'vue-waypoint';
 import VueLazyload from 'vue-lazyload';
 import VueMeta from 'vue-meta';
-library.add(faFacebookF, faPizzaSlice);
+library.add(faPhone, faPizzaSlice, faDirections);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
