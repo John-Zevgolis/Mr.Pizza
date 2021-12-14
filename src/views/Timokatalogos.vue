@@ -8,14 +8,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-xxl-9">
-						<div class="row">
-							<div class="col-6 col-lg-4 col-xxl-3 mb-4" v-for="(item, index) in objData.metadata.pictures" :key="index">
-								<div class="bg-img" v-for="(value, name, index) in item" :key="index"  v-lazy:background-image="value.url"></div>
-							</div>
-						</div>
+					<div class="col-12">
+						<div class="menu border py-4 py-md-5 px-3 px-sm-4 px-md-5 rounded"  v-html="objData.content"></div>
 					</div>
-					<div class="col-md-4 col-xxl-3" v-html="objData.content"></div>
 				</div>
 			</div>
 		</section>
@@ -45,9 +40,26 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-	.bg-img {
-		padding-top: 100%;
-		border: 5px solid #000;
+<style lang="scss">
+.menu {
+	background: #d8252f;
+	color: #fff;
+
+	h4 {
+		margin-bottom: 1.5rem;
+
+		@media (max-width: 1199.98px) {
+			font-size: calc(1rem + 0.3vw);
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.dots {
+			border-bottom: 2px dotted #ccc;
+		}
 	}
+}
+
 </style>

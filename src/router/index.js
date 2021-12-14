@@ -40,9 +40,9 @@ const routes = [
     component: () => import('../views/SalatesItem.vue')
   },
   {
-    name: 'Anapsyktika',
-    path: '/anapsyktika',
-    component: () => import('../views/Anapsyktika.vue')
+    name: 'Timokatalogos',
+    path: '/timokatalogos',
+    component: () => import('../views/Timokatalogos.vue')
   },
   {
     name: 'Contact',
