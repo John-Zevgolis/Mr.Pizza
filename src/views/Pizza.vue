@@ -17,7 +17,7 @@
 						<h2 v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="my-3 my-md-4 display-5 from-bottom"><span class="badge">ΜΗΝ ΞΕΧΑΣΕΤΕ</span></h2>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row justify-content-center">
 					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mt-4 from-bottom" v-for="(item, index) in objData.metadata.diafora_items" :key="index">
 						<item :slug="item.metadata.url" :item="item"></item>
 					</div>
