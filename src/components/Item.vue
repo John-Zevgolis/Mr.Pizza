@@ -3,7 +3,12 @@
 		<div class="bg-img" v-lazy:background-image="item.thumbnail"></div>
 	</router-link>
 	<router-link v-else class="box-item" :to="`/${slug}/${item.slug}`">
-		<div class="bg-img" v-lazy:background-image="item.thumbnail"></div>
+		<div class="bg-img" v-if="item.thumbnail" v-lazy:background-image="item.thumbnail"></div>
+		<div class="bg-img position-relative no-img" v-else>
+			<div class="position-absolute h-100 w-100 d-flex justify-content-center align-items-center p-3 text-white">
+				<h4>{{item.title}}</h4>
+			</div>
+		</div>
 	</router-link>
 </template>
 
@@ -17,6 +22,16 @@ export default {
 .box-item {
 	.bg-img {
 		padding-top: 71.83333%;
+
+		&.no-img {
+			background: #d8252f;
+
+			& > div {
+				background: rgba(0, 0, 0, .4);
+				bottom: 0;
+				left: 0;
+			}
+		}
 	}
 }
 </style>
