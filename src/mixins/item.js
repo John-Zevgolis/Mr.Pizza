@@ -4,13 +4,14 @@ export default {
 			title: 'Mr.Pizza',
 			titleTemplate: `%s | ${this.title}`,
 			meta: [
-				{ name: 'description', content: 'Η καλύτερη πίτσα της πόλης !!! Απόλλωνος 71 & Αρτέμιδος, Ηλιούπολη, 164 43 Αθήνα.' }
+				{ name: 'description', content: `${this.description}` }
 			]
 		}
 	},
 	data() {
 		return {
-			title: ''
+			title: '',
+			description: ''
 		};
 	},
 	created() {
@@ -29,6 +30,11 @@ export default {
 	watch: {
 		item(value) {
 			this.title = value.title;
+			this.description = value.metadata.ingredients.map(item => {
+				for (var prop in item) {
+					return item[prop];
+				}
+			}).join(', ');
 		}
 	}
 };

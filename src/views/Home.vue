@@ -1,12 +1,12 @@
 <template>
   <div>
-  <section v-if="objData">
-    <carousel :banners="objData.metadata.banners"></carousel>
-  </section>
-  <transition name="fade">
-    <loader v-show="!objData"></loader>
-  </transition>
-</div>
+    <section v-if="objData">
+      <carousel :banners="objData.metadata.banners"></carousel>
+    </section>
+    <transition name="fade">
+      <loader v-show="!objData"></loader>
+    </transition>
+  </div>
 </template>
 
 <script>
