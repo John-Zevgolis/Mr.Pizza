@@ -4,7 +4,7 @@
       <div class="col-12" >
         <VueSlickCarousel v-bind="settings" v-if="banners">
           <div v-for="(item, index) in banners" :key="index">
-            <div class="bg-img position-relative h-100 d-flex justify-content-center align-items-center" :style="`background-image: url(${item.metadata.slide.url}`">
+            <div class="bg-img position-relative h-100 d-flex justify-content-center align-items-center" :style="`background-image: url(${item.metadata.slide.url})`">
               <div class="position-relative text-center custom-padding-top custom-padding-bottom px-3 box-item">
                 <img :src="item.thumbnail" v-if="item.thumbnail" class="tada">
                 <div v-else>
