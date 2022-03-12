@@ -238,18 +238,6 @@ header {
   padding: 1rem 0;
   min-height: 0;
 
-  &:after {
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: #d8252f;
-    transition: all .3s;
-    transform: translateY(-100%);
-  }
-
   &.scrolling,&.active {
     .main-navigation {
       li {
