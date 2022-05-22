@@ -282,6 +282,7 @@ header {
 
   &.scrolling {
     padding: 0.5rem;
+    background: #d8252f;
 
     .navbar-brand {
       img {
@@ -316,6 +317,7 @@ header {
       .main-navigation {
         opacity: 1;
         pointer-events: all;
+        top: calc(118.9px + 1rem);
       }
     }
 
@@ -329,6 +331,14 @@ header {
 
     &::-webkit-scrollbar-thumb {
       background: #fff;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+      &.active {    
+      .main-navigation {
+        top: calc(107px + 1rem);
+      }
     }
   }
   
@@ -368,7 +378,11 @@ header {
       position: absolute;
       opacity: 0;
       pointer-events: none;
-      top: 158.67px;
+      top: calc(142.68px + 1rem);
+    }
+
+    @media (max-width: 575.98px) {
+      top: calc(130.79px + 1rem);
     }
 
     li {

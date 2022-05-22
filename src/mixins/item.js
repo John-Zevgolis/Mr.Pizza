@@ -3,15 +3,15 @@ export default {
 		return {
 			title: 'Mr.Pizza',
 			titleTemplate: `%s | ${this.title}`,
-			meta: [
-				{ name: 'description', content: `${this.description}` }
-			]
+			// meta: [
+			// 	{ name: 'description', content: `${this.description}` }
+			// ]
 		}
 	},
 	data() {
 		return {
 			title: '',
-			description: ''
+			// description: ''
 		};
 	},
 	created() {
@@ -30,11 +30,11 @@ export default {
 	watch: {
 		item(value) {
 			this.title = value.title;
-			this.description = value.metadata.ingredients.map(item => {
-				for (var prop in item) {
-					return item[prop];
-				}
-			}).join(', ');
+			// this.description = value.metadata.ingredients.map(item => {
+			// 	for (var prop in item) {
+			// 		return item[prop];
+			// 	}
+			// }).join(', ');
 		}
 	}
 };

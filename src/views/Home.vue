@@ -15,10 +15,7 @@ import Loader from '../components/Loader.vue';
 
 export default {
   metaInfo: {
-    title: "Mr.Pizza",
-    meta: [
-      { name: 'description', content: 'Η καλύτερη πίτσα της πόλης !!! Απόλλωνος 71 & Αρτέμιδος, Ηλιούπολη, 164 43 Αθήνα.' }
-    ]
+    title: "Mr.Pizza"
   },
   components: {
     Carousel,
