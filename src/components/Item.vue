@@ -5,8 +5,8 @@
 	<router-link v-else class="box-item" :to="`/${slug}/${item.slug}`">
 		<div class="bg-img" v-if="item.thumbnail" v-lazy:background-image="item.thumbnail"></div>
 		<div class="bg-img position-relative no-img" v-else>
-			<div class="position-absolute h-100 w-100 d-flex justify-content-center align-items-center p-3 text-white">
-				<h4>{{item.title}}</h4>
+			<div class="position-absolute h-100 w-100 d-flex justify-content-center align-items-center p-3 text-white text-center">
+				<h4 v-html="item.title"></h4>
 			</div>
 		</div>
 	</router-link>

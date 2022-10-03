@@ -8,8 +8,8 @@
 					</div>
 				</div>
 				<div class="row">
-					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mb-4 from-bottom" v-for="(salata, index) in objData.metadata.salates_items" :key="index">
-						<item :slug="objData.slug" :item="salata"></item>
+					<div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="col-md-6 mb-4 from-bottom" v-for="(synodeutiko, index) in objData.metadata.synodeutika_items" :key="index">
+						<item :slug="objData.slug" :item="synodeutiko"></item>
 					</div>
 				</div>
 			</div>

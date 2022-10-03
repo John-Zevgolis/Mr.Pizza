@@ -394,7 +394,7 @@ header {
         }
 
         @media (max-width: 1199.98px) {
-          font-size: 0.875rem;
+          font-size: 0.9375rem;
         }
 
         @media (max-width: 991.98px) {
@@ -407,7 +407,7 @@ header {
         }
 
         @media (max-width: 575.98px) {
-          font-size: 0.875rem;
+          font-size: 0.0.9375rem;
         }
 
         &:before {

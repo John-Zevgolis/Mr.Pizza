@@ -30,14 +30,14 @@ const routes = [
     component: () => import('../views/MakaronadesItem.vue')
   },
   {
-    name: 'Salates',
-    path: '/salates',
-    component: () => import('../views/Salates.vue')
+    name: 'Synodeutika',
+    path: '/synodeutika',
+    component: () => import('../views/Synodeutika.vue')
   },
   {
-    name: 'SalatesItem',
-    path: '/salates/:id',
-    component: () => import('../views/SalatesItem.vue')
+    name: 'SynodeutikaItem',
+    path: '/synodeutika/:id',
+    component: () => import('../views/SynodeutikaItem.vue')
   },
   {
     name: 'Timokatalogos',

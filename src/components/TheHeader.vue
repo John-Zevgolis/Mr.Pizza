@@ -11,7 +11,7 @@
 							<nav class="py-5 py-lg-0">
 								<ul class="nav flex-column flex-lg-row text-center text-lg-start">
 									<li v-for="(page, index) in pages" :key="index">
-										<router-link @click.native="closeMenu" class="fw-bold px-lg-1 position-relative mx-lg-3 py-3 mb-2 mb-lg-0 py-lg-1 d-inline-block" :exact="index === 0" :to="index === 0 ? '/' : `/${page.slug}`">{{page.singular}}</router-link>
+										<router-link @click.native="closeMenu" class="fw-bold px-lg-1 position-relative mx-lg-2 mx-xl-3 py-3 mb-2 mb-lg-0 py-lg-1 d-inline-block" :exact="index === 0" :to="index === 0 ? '/' : `/${page.slug}`">{{page.singular}}</router-link>
 									</li>
 								</ul>
 							</nav>

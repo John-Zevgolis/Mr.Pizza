@@ -4,7 +4,7 @@
 			<div class="row mx-0">
 				<div class="col-12">
 					<div class="custom-padding-top pb-5 position-relative">
-						<h1 class="mb-4"><span class="badge">{{item.title}}</span></h1>
+						<h1 class="mb-4"><span class="badge text-start" v-html="item.title"></span></h1>
 						<div class="row" v-if="item.slug === 'ylika'">
 							<div class="col-md-4 mb-4 mb-md-0" v-for="(item, index) in item.metadata.ylika_items" :key="index">
 								<div class="card">
@@ -34,7 +34,7 @@
 			<div class="row mx-0">
 				<div class="col-12">
 					<div class="custom-padding-top pb-5 position-relative">
-						<h1 class="mb-4"><span class="badge">{{item.title}}</span></h1>
+						<h1 class="mb-4"><span class="badge text-start" v-html="item.title"></span></h1>
 						<div class="row" v-if="item.slug === 'ylika'">
 							<div class="col-md-4 mb-4 mb-md-0" v-for="(item, index) in item.metadata.ylika_items" :key="index">
 								<div class="card">
